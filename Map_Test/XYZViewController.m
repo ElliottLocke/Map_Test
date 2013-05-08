@@ -13,6 +13,8 @@
 @end
 
 @implementation XYZViewController
+@synthesize mapView;
+@synthesize toggleButton;
 
 - (void)viewDidLoad
 {
@@ -26,4 +28,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-@end
+- (IBAction)findMe:(id)sender {
+    if ([[toggleButton titleForState:UIControlStateNormal] isEqualToString:@"Find Me"]){
+        [toggleButton setTitle:@"Hide Me" forState:UIControlStateNormal];
+        mapView.showsUserLocation = YES;
+    }
+    else {
+        [toggleButton setTitle:@"Find Me" forState:UIControlStateNormal];
+    mapView.showsUserLocation = NO;
+}
+}
+    @end
